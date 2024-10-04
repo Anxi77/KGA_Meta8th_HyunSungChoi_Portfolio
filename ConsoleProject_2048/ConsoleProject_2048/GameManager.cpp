@@ -94,6 +94,7 @@ void GameManager::GameStart()
 			break;
 		case 16:
 			GameTrig = false;
+			continue;
 		}
 		GridManager& G = GridManager::getInstance(size);
 		if (!savedGrid.empty() && savedGrid.size() == size)
