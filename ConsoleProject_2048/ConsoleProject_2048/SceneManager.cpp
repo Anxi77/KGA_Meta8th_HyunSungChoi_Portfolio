@@ -25,7 +25,7 @@ void SceneManager::LobbyScene()
 SceneManager::SceneManager()
 {
     SetConsoleCursorPosition(0, 0);
-    ConsoleUtils::SetConsoleFontSize(61, 60);
+    ConsoleUtils::SetConsoleFontSize(24, 24);
     ConsoleUtils::SetConsoleBufferSize(82, 24);
     ConsoleUtils::SetConsoleWindowSize(82, 24);
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -38,6 +38,6 @@ SceneManager::SceneManager()
     RECT r;
     GetWindowRect(consoleWindow, &r);
     MoveWindow(consoleWindow, r.left, r.top, (r.right - r.left) + 2, (r.bottom - r.top) + 2, TRUE);
-    ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
+    //ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
     ConsoleUtils::CursorView();
 }
