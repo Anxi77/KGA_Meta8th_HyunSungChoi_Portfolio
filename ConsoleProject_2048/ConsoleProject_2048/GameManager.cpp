@@ -97,7 +97,7 @@ void GameManager::GameStart()
 		}
 		GridManager& G = GridManager::getInstance(size);
 		if (!savedGrid.empty() && savedGrid.size() == size)
-		{			
+		{           
 			if (GameVali(savedGrid, size))
 			{
 				G.setGrid(savedGrid);
@@ -112,6 +112,7 @@ void GameManager::GameStart()
 			G.initialize();
 		}
 		G.SpawnNewNumber();
+		previousGrid = G.getGrid();
 		while (GameVali(G.getGrid(), size))
 		{
 			int currentScore = G.getCurrentScore(size);
@@ -120,9 +121,17 @@ void GameManager::GameStart()
 				topscore = currentScore;
 			}
 			S.StageScene(size, topscore, currentScore, G.getGrid(), G.getNewSpawn());
-			
-			if(G.move())
+			vector<vector<int>> tempGrid = G.getGrid();			
+			bool moved = G.move();
+			if (G.getReturn() == true)
 			{
+				G.setGrid(previousGrid);
+				G.resetNewSpawn();
+				continue;
+			}
+			else if(moved == true)
+			{
+				previousGrid = tempGrid;
 				G.SpawnNewNumber();
 			}
 			if (G.getbEsc() == true)

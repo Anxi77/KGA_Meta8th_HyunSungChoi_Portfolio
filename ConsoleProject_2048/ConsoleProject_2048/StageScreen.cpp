@@ -236,5 +236,8 @@ void StageScreen::Instructions()
     cout << "New Tile : ";
     SetColor(ConsoleColor::Red);
     cout << "RED";
+    SetColor(ConsoleColor::Aqua);
+    SetConsoleCursorPosition(3, 8);
+    cout << "Press R to Go Back 1 Move";
     DefaultColor();
 }

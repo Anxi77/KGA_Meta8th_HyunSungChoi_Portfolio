@@ -25,6 +25,7 @@ public:
     void setGrid(const vector<vector<int>>& newGrid);
     void resetNewSpawn() { newSpawn = { -1, -1 }; }
     bool getbEsc() { return bEsc; }
+    bool getReturn() { return bReturn; }
 private:
     GridManager(int size);
     GridManager(const GridManager&) = delete;
@@ -33,4 +34,5 @@ private:
     GridGen gridGen;
     GridMove gridMove;
     pair<int, int> newSpawn;
+    bool bReturn;
 };

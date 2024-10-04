@@ -13,6 +13,7 @@ void GridManager::initialize()
 bool GridManager::move()
 {
     bEsc = false;
+    bReturn = false;
     bool moved = false;
     bool bMoveTrig = true;
     while (bMoveTrig)
@@ -23,7 +24,12 @@ bool GridManager::move()
             if (ch == 27)
             {
                 bEsc = true;
-                return false;
+                bMoveTrig = false;
+            }
+            else if (ch == 82 || ch == 114)
+            {
+                bReturn = true;
+                bMoveTrig = false;
             }
             else if (ch == 224)
             {
@@ -33,19 +39,19 @@ bool GridManager::move()
                 case 72:
                     moved = gridMove.moveGridUP();
                     bMoveTrig = false;
-                    return moved;
+                    break;
                 case 80:
                     moved = gridMove.moveGridDown();
                     bMoveTrig = false;
-                    return moved;
+                    break;
                 case 75:
                     moved = gridMove.moveGridLeft();
                     bMoveTrig = false;
-                    return moved;
+                    break;
                 case 77:
                     moved = gridMove.moveGridRight();
                     bMoveTrig = false;
-                    return moved;
+                    break;
                 }
             }
             else 
@@ -66,6 +72,7 @@ bool GridManager::move()
             }
         }
     }
+    return moved;
 }
 
 bool GridManager::SpawnNewNumber() 

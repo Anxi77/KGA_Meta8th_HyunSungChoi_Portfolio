@@ -26,6 +26,7 @@ private:
 	void LoadGame(int& topscore, vector<vector<int>>& grid);
 	int topscore;
 	vector<vector<int>> savedGrid;
+	vector<vector<int>> previousGrid;
 	const string SAVE_FILE = "2048_save.txt";
 };
 
