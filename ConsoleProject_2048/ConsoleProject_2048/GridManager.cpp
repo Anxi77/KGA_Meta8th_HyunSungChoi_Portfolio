@@ -12,6 +12,7 @@ void GridManager::initialize()
 
 bool GridManager::move()
 {
+    bEsc = false;
     bool moved = false;
     bool bMoveTrig = true;
     while (bMoveTrig)
@@ -21,9 +22,10 @@ bool GridManager::move()
             int ch = _getch();
             if (ch == 27)
             {
+                bEsc = true;
                 return false;
             }
-            if (ch == 224)
+            else if (ch == 224)
             {
                 ch = _getch();
                 switch (ch)

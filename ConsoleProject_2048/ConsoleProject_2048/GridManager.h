@@ -24,10 +24,12 @@ public:
     pair<int, int> getNewSpawn() const { return newSpawn; }
     void setGrid(const vector<vector<int>>& newGrid);
     void resetNewSpawn() { newSpawn = { -1, -1 }; }
+    bool getbEsc() { return bEsc; }
 private:
     GridManager(int size);
     GridManager(const GridManager&) = delete;
     GridManager& operator=(const GridManager&) = delete;
+    bool bEsc;
     GridGen gridGen;
     GridMove gridMove;
     pair<int, int> newSpawn;
