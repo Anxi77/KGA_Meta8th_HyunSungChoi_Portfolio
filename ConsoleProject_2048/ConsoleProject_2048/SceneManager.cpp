@@ -27,5 +27,6 @@ SceneManager::SceneManager()
     SetConsoleCursorPosition(0, 0);
     ConsoleUtils::SetConsoleFontSize(24, 24);
     ConsoleUtils::SetConsoleBufferSize(82, 24);
+    ConsoleUtils::SetConsoleWindowSize(82, 24);
     ConsoleUtils::CursorView();
 }
