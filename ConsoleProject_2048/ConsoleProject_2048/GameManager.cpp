@@ -111,21 +111,19 @@ void GameManager::GameStart()
 		{
 			G.initialize();
 		}
-
+		G.SpawnNewNumber();
 		while (GameVali(G.getGrid(), size))
 		{
-			G.SpawnNewNumber();
 			int currentScore = G.getCurrentScore(size);
 			if (currentScore > topscore) 
 			{
 				topscore = currentScore;
 			}
 			S.StageScene(size, topscore, currentScore, G.getGrid(), G.getNewSpawn());
-			if(G.move() == false)
+			if(G.move() == true)
 			{
-				break;
+				G.SpawnNewNumber();
 			}
-			G.resetNewSpawn();
 		}
 
 		savedGrid = G.getGrid();

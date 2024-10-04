@@ -27,17 +27,5 @@ SceneManager::SceneManager()
     SetConsoleCursorPosition(0, 0);
     ConsoleUtils::SetConsoleFontSize(24, 24);
     ConsoleUtils::SetConsoleBufferSize(82, 24);
-    ConsoleUtils::SetConsoleWindowSize(82, 24);
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    CONSOLE_SCREEN_BUFFER_INFO csbi;
-    GetConsoleScreenBufferInfo(hConsole, &csbi);
-    csbi.dwSize.X = 82;
-    csbi.dwSize.Y = 24;
-    SetConsoleScreenBufferSize(hConsole, csbi.dwSize);
-    HWND consoleWindow = GetConsoleWindow();
-    RECT r;
-    GetWindowRect(consoleWindow, &r);
-    MoveWindow(consoleWindow, r.left, r.top, (r.right - r.left) + 2, (r.bottom - r.top) + 2, TRUE);
-    //ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
     ConsoleUtils::CursorView();
 }

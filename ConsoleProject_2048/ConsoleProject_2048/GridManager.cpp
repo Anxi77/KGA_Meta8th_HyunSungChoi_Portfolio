@@ -31,37 +31,39 @@ bool GridManager::move()
                 case 72:
                     moved = gridMove.moveGridUP();
                     bMoveTrig = false;
-                    return true;
+                    return moved;
                 case 80:
                     moved = gridMove.moveGridDown();
                     bMoveTrig = false;
-                    return true;
+                    return moved;
                 case 75:
                     moved = gridMove.moveGridLeft();
                     bMoveTrig = false;
-                    return true;
+                    return moved;
                 case 77:
                     moved = gridMove.moveGridRight();
                     bMoveTrig = false;
-                    return true;
+                    return moved;
                 }
             }
-            for (int i = 0; i < 7; ++i)
+            else 
             {
+                for (int i = 0; i < 7; ++i)
+                {
+                    SetConsoleCursorPosition(5, 15);
+                    cout << "                ";
+                    Sleep(77);
+                    SetConsoleCursorPosition(5, 15);
+                    SetColor(ConsoleColor::Red);
+                    cout << "Invalid Input !!";
+                    Sleep(77);
+                    DefaultColor();
+                }
                 SetConsoleCursorPosition(5, 15);
                 cout << "                ";
-                Sleep(77);
-                SetConsoleCursorPosition(5, 15);
-                SetColor(ConsoleColor::Red);
-                cout << "Invalid Input !!";
-                Sleep(77);
-                DefaultColor();
             }
-            SetConsoleCursorPosition(5, 15);
-            cout << "                ";
         }
     }
-    return moved;
 }
 
 bool GridManager::SpawnNewNumber() 
