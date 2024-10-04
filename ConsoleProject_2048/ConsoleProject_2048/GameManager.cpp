@@ -120,9 +120,13 @@ void GameManager::GameStart()
 				topscore = currentScore;
 			}
 			S.StageScene(size, topscore, currentScore, G.getGrid(), G.getNewSpawn());
-			if(G.move() == true)
+			if(G.move())
 			{
 				G.SpawnNewNumber();
+			}
+			else
+			{
+				break;
 			}
 		}
 
