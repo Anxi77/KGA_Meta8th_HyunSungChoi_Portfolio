@@ -12,8 +12,13 @@ class GridManager
 public:
     static GridManager& getInstance(int size) 
     {
-        static GridManager instance(size);
-        return instance;
+        static GridManager* instance = nullptr;
+        if (instance == nullptr || instance->gridGen.getSize() != size) 
+        {
+            delete instance;
+            instance = new GridManager(size);
+        }
+        return *instance;
     }
     void initialize();
     bool move();
