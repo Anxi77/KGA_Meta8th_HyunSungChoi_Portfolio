@@ -42,15 +42,11 @@ public class CharacterMovement : MonoBehaviour
     private void Update()
     {
         AnimatorMovement();
-        if (Input.GetMouseButton(0)) 
-        {
-            SetDestination(mouseInput.mouseInputPosition);
-        }       
+        
         if (isMoving)
         {
             UpdateMovement();
         }
-
         // 목적지에 도착했는지 확인
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
@@ -85,7 +81,7 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    private void UpdateRotation(Vector3 desiredDirection)
+    public void UpdateRotation(Vector3 desiredDirection)
     {
         if (desiredDirection != Vector3.zero)
         {

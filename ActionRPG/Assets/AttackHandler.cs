@@ -34,8 +34,9 @@ public class AttackHandler : MonoBehaviour
         float distance = Vector3.Distance(transform.position, target.transform.position);
         if (distance < attackRange)
         {
+            characterMovement.UpdateRotation(target.transform.position);
             animator.SetTrigger("Attack");
-            characterMovement.StopMoving();
+            //characterMovement.StopMoving();
             target = null;
         }
         else

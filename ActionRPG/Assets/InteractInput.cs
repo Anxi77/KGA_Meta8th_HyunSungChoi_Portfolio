@@ -21,7 +21,7 @@ public class InteractInput : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (hoveringOverObject == null) 
+            if (hoveringOverObject != null)
             {
                 hoveringOverObject.Interact();
             }
